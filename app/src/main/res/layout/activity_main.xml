@@ -8,29 +8,37 @@
 
 
     <ImageView
-        android:background="#000000"
         android:id="@+id/memeView"
-        android:layout_width="242dp"
-        android:layout_height="294dp"
+        android:layout_width="match_parent"
+        android:layout_height="635dp"
         android:layout_marginTop="50dp"
+        android:layout_marginBottom="293dp"
+        android:background="#000000"
+        android:contentDescription="@string/ImageDescription"
+        app:layout_constraintBottom_toTopOf="@+id/Sharebutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="TODO" />
+        app:layout_constraintVertical_bias="0.14"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/Sharebutton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#E91E63"
+        android:insetRight="1dp"
         android:onClick="Shareme"
         android:padding="32dp"
         android:text="@string/share"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:backgroundTint="#00897B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/Nextbutton"
@@ -40,15 +48,19 @@
         android:onClick="Nextme"
         android:padding="32dp"
         android:text="@string/next"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:backgroundTint="#00897B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-       app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_percent="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

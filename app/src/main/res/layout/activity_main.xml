@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/black"
     tools:context=".MainActivity">
 
 
     <ImageView
         android:id="@+id/memeView"
-        android:layout_width="match_parent"
-        android:layout_height="635dp"
+        android:layout_width="397dp"
+        android:layout_height="573dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="293dp"
         android:background="#000000"
@@ -26,6 +27,7 @@
         android:id="@+id/Sharebutton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:background="#E91E63"
         android:insetRight="1dp"
         android:onClick="Shareme"
@@ -36,14 +38,18 @@
         app:backgroundTint="#00897B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/Nextbutton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:background="#FFFFFF"
         android:onClick="Nextme"
         android:padding="32dp"
@@ -53,8 +59,11 @@
         app:backgroundTint="#00897B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <androidx.constraintlayout.widget.Guideline

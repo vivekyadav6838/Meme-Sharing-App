@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun Memeload(){
         val queue = Volley.newRequestQueue(this)
-        url = "https://meme-api.herokuapp.com/gimme"
+        url = "https://meme-api.com/gimme"
 
 
 

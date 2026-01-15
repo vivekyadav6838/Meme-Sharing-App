@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     fun Shareme(view: View) {
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT,"Hey bhai log chekout this meme $url")
+        intent.putExtra(Intent.EXTRA_TEXT,"Hi bro  chekout this meme $url")
         val chooser = Intent.createChooser(intent,"Share this via")
         startActivity(chooser)
     }

@@ -1,58 +1,72 @@
 package com.example.memeshareapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
-import com.android.volley.Request.*
-import com.android.volley.Request.Method.GET
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
-import com.android.volley.Response as Response
 
 class MainActivity : AppCompatActivity() {
-    var url: String? = null
+
+    private var currentMemeUrl: String? = null
+    private lateinit var memeImageView: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Memeload()
+
+        memeImageView = findViewById(R.id.memeView)
+        loadMeme()
     }
 
-    private fun Memeload(){
+    private fun loadMeme() {
         val queue = Volley.newRequestQueue(this)
-        url = "https://meme-api.com/gimme"
+        val apiUrl = "https://meme-api.com/gimme"
 
-
-
-// Request a string response from the provided URL.
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET,url,null,
-            Response.Listener { response->
-                val url = response.getString("url")
-
-                Glide.with(this).load(url).into(findViewById(R.id.memeView))
-
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.GET,
+            apiUrl,
+            null,
+            { response ->
+                currentMemeUrl = response.getString("url")
+                Glide.with(this)
+                    .load(currentMemeUrl)
+                    .into(memeImageView)
             },
-            Response.ErrorListener {
+            {
+                Toast.makeText(
+                    this,
+                    "Failed to load meme. Check internet.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        )
 
-            })
-
-// Add the request to the RequestQueue.
         queue.add(jsonObjectRequest)
     }
 
     fun Shareme(view: View) {
+        if (currentMemeUrl == null) {
+            Toast.makeText(this, "No meme to share yet", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT,"Hi bro  chekout this meme $url")
-        val chooser = Intent.createChooser(intent,"Share this via")
-        startActivity(chooser)
+        intent.putExtra(
+            Intent.EXTRA_TEXT,
+            "😂 Check out this meme!\n$currentMemeUrl"
+        )
+
+        startActivity(Intent.createChooser(intent, "Share via"))
     }
+
     fun Nextme(view: View) {
-        Memeload()
+        loadMeme()
     }
 }

@@ -4,68 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/black"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
-
+    <!-- Meme Image -->
     <ImageView
         android:id="@+id/memeView"
-        android:layout_width="397dp"
-        android:layout_height="573dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="293dp"
-        android:background="#000000"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:contentDescription="@string/ImageDescription"
-        app:layout_constraintBottom_toTopOf="@+id/Sharebutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14"
+        app:layout_constraintBottom_toTopOf="@id/happinessText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.75"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <!-- Loader -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/memeView"
+        app:layout_constraintBottom_toBottomOf="@id/memeView"
+        app:layout_constraintStart_toStartOf="@id/memeView"
+        app:layout_constraintEnd_toEndOf="@id/memeView" />
 
-    <Button
+    <!-- Happiness Text -->
+    <TextView
+        android:id="@+id/happinessText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep sharing happiness ❤️"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:alpha="0.85"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/memeView"
+        app:layout_constraintBottom_toTopOf="@id/Sharebutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Share Button -->
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/Sharebutton"
         android:layout_width="140dp"
         android:layout_height="48dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/btn_share"
-
-        android:backgroundTint="@null"
-        android:onClick="Shareme"
-        android:padding="0dp"
-        android:text="Share Meme"
+        android:text="@string/share_meme"
         android:textColor="@android:color/white"
-        android:textSize="14sp"
-        app:backgroundTint="#00EB00"
+        android:onClick="Shareme"
+        app:backgroundTint="#4CAF50"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline2"
-        app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+        app:layout_constraintEnd_toStartOf="@id/guideline2" />
 
-    <Button
+
+
+    <!-- Next Button -->
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/Nextbutton"
         android:layout_width="140dp"
         android:layout_height="48dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/btn_next"
-        android:backgroundTint="@null"
-
-        android:onClick="Nextme"
-        android:padding="0dp"
-        android:text="Next Meme"
+        android:text="@string/next_meme"
         android:textColor="@android:color/white"
-        android:textSize="14sp"
-        app:backgroundTint="#0000C8"
+        android:onClick="Nextme"
+        app:backgroundTint="#3F51B5"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="@id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+
+
+    <!-- Center Guideline -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
@@ -73,16 +89,4 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Keep sharing happiness ❤️"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
 </androidx.constraintlayout.widget.ConstraintLayout>

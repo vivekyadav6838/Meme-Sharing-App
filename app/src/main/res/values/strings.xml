@@ -4,4 +4,8 @@
     <string name="share">Share</string>
     <string name="next">Next</string>
     <string name="ImageDescription">Next</string>
+    <string name="share_meme">Share Meme</string>
+    <string name="next_meme">Next Meme</string>
+    <string name="keep_sharing">Keep sharing happiness ❤️</string>
+
 </resources>
